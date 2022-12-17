@@ -40,11 +40,29 @@ tasksRouter.post('/', (req, res) => {
 })
 
 
-
-
-
 //PUT
+tasksRouter.put('/:id', (req,res) => {
+    console.log('req.params:', req.params);
+    console.log('req.body:', req.body);
+  
+    let idToUpdate = req.params.id;
+    let newComplete = req.body.complete;
 
+    let sqlQuery = `
+        UPDATE "tasks"
+            SET "complete"=$1
+            WHERE "id"=$2;
+    `
+    let sqlValues = [newComplete, idToUpdate];
+    pool.query(sqlQuery, sqlValues)
+        .then( (dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch( (dbErr) => {
+            console.log('something broke in PUT /tasks/:id', dbErr)
+            res.sendStatus(500);
+        })
+  })
 
 
 
