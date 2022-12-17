@@ -1,7 +1,7 @@
 CREATE TABLE "tasks" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR (100) NOT NULL,
-	"notes" VARCHAR (300),
+	"notes" VARCHAR (300) NOT NULL,
 	"complete" BOOLEAN NOT NULL);
 
 --dummy data
@@ -12,3 +12,8 @@ INSERT INTO "tasks"
 	('Make Bed', 'Do NOT get back in bed', 'true'),
 	('Make Breakfast', 'Yum yum yum delicioso!', 'false');
 
+SELECT * FROM "tasks"
+    ORDER BY "id";
+
+INSERT INTO "tasks" ("name", "notes", "complete")
+    VALUES ($1, $2, $3);

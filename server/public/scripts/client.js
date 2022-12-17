@@ -5,31 +5,32 @@ function onReady() {
    //load existing tasks on page as soon as server is opened
    getTask();
    //createTask
+   $('#submitButton' ).on('click', createTask);
 }
 
 //will turn input values into an object we can send to server
 function createTask() {
-    $( '#submitButton' ).on('click', function(){
-        console.log( 'adding task' );
+    console.log( 'adding task' );
     //grab input values
-    let newTask = $('#taskInput').val();
-    let newNote = $('#noteInput').val();
+    let newName = $('#taskInput').val();
+    let newNote = $('#notesInput').val();
 
     //make a new object to send to server
     let taskToSend = {
-        task: newTask,
-        note: newNote,
+        name: newName,
+        notes: newNote,
+        //default will be false because all tasks would start 
+        //as not complete
         complete: false
     };
     //call the function that will post this object to server
-    // function postTask(taskToSend);
-    })
+    postTask(taskToSend); 
 }
 
 //function will append data from database
 function getTask() {
     console.log('in GET /task');
-    //send request to server to send tasks to client
+    //ask server to send tasks to client
     $.ajax({
         method: 'GET',
         url: `/tasks`
@@ -50,5 +51,24 @@ function getTask() {
     }).catch((err) => {
         console.log('something broke in GET /tasks', err);
 
+    })
+}
+
+//function will send input object (taskToSend) to server
+//so task can be added to the database
+function postTask(newTask) {
+    console.log('in POST /task', newTask);
+    //send object to server
+    $.ajax({
+        method: 'POST',
+        url: `/tasks`, 
+        data: newTask
+    }).then ((res) => {
+        //seeing if object was posted
+        console.log(res);
+        //calling getTasks so page can re-render with updated list
+        getTask();
+    }).catch((err) => {
+        console.log('something broke in POST /tasks', err);
     })
 }
