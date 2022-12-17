@@ -7,6 +7,7 @@ function onReady() {
    //click handler for submit button
    $('#submitButton' ).on('click', createTask);
    $('#taskList').on('click', '.markAsCompleteButton', putTask);
+   $('#taskList').on('click', '.deleteButton', deleteTask);
 }
 
 //will turn input values into an object we can send to server
@@ -85,6 +86,7 @@ function postTask(newTask) {
 }
 
 //function to mark tasks as complete
+//update DOM and database by changing completion status from false to true
 function putTask() {
     console.log('task is marked as complete');
     let idToUpdate = $(this).data().id;
@@ -101,6 +103,21 @@ function putTask() {
         }).catch((err) => {
             console.log('something broke in PUT /tasks', err);
         });
+}
+
+//function to delete tasks from the DOM and database
+function deleteTask() {
+    console.log('deleting a task')
+    let idToDelete = $(this).data().id;
+    console.log(idToDelete);
+    $.ajax ({
+      method: 'DELETE',
+      url: `/tasks/${idToDelete}`
+    }).then ((res) => {
+      getTask();
+    }).catch((err) => {
+      console.log('error in DELETE /tasks/:id', err);
+    })
 }
 
 

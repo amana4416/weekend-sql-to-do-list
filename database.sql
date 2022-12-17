@@ -17,3 +17,10 @@ SELECT * FROM "tasks"
 
 INSERT INTO "tasks" ("name", "notes", "complete")
     VALUES ($1, $2, $3);
+
+UPDATE "tasks"
+    SET "complete"=$1
+    WHERE "id"=$2;
+
+DELETE FROM "tasks"
+    WHERE "id"=$1;
