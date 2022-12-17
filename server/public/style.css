@@ -1,3 +1,11 @@
 h1 {
     color: purple;
 }
+
+.taskComplete {
+    background-color: #81CB71;
+}
+
+li {
+    background-color: #E78C89;
+}

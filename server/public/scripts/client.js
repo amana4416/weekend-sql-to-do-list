@@ -53,7 +53,7 @@ function getTask() {
               }
               else if (task.complete) {
                 $('#taskList').append(`
-                <li>
+                <li ${conditionallyMarkAsComplete(task)}>
                     <h4>${task.name}</h4>
                     <p> ${task.notes} </p>
                     <button class="deleteButton" data-id="${task.id}">Delete</button>
@@ -120,6 +120,15 @@ function deleteTask() {
     })
 }
 
+//function to visually change the background color of tasks
+//pink if task is not complete
+//green if task is complete
+function conditionallyMarkAsComplete(task) {
+    if (task.complete === true) {
+        return 'class="taskComplete"';
+    } else 
+        return '';
+}
 
 
 
