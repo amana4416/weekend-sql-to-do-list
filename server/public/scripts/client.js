@@ -117,14 +117,23 @@ function deleteTask() {
     console.log('deleting a task')
     let idToDelete = $(this).data().id;
     console.log(idToDelete);
-    $.ajax ({
-      method: 'DELETE',
-      url: `/tasks/${idToDelete}`
-    }).then ((res) => {
-      getTask();
-    }).catch((err) => {
-      console.log('error in DELETE /tasks/:id', err);
-    })
+    swal("Are you sure you want to delete this task?", {
+        title: "Delete Task",
+        icon: "warning",
+        dangerMode: true,
+        buttons: true,
+      }).then((response) => {
+        if (response === true){
+            $.ajax ({
+            method: 'DELETE',
+            url: `/tasks/${idToDelete}`
+            }).then ((res) => {
+            getTask();
+            }).catch((err) => {
+            console.log('error in DELETE /tasks/:id', err);
+            })
+        } 
+      })
 }
 
 //function to visually change the background color of tasks
