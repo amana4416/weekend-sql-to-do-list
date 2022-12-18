@@ -121,7 +121,7 @@ function deleteTask() {
 }
 
 //function to visually change the background color of tasks
-//pink if task is not complete
+// if task is not complete
 //green if task is complete
 function conditionallyMarkAsComplete(task) {
     if (task.complete === true) {

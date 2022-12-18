@@ -2,10 +2,12 @@ h1 {
     color: purple;
 }
 
-.taskComplete {
-    background-color: #81CB71;
+/* default color for a new list item is   */
+li {
+    background-color: #98DAF1;
 }
 
-li {
-    background-color: #E78C89;
+/* task turns green when the complete button is clicked */
+.taskComplete {
+    background-color: #81CB71;
 }
