@@ -25,7 +25,7 @@
                 <section id="inputs">
                     <div class="row mb-4">
                         <div class="col-md-7">
-                            <input type="text" id="taskInput" placeholder="Tasks" class="form-control shadow" required>
+                            <input type="text" id="taskInput" placeholder="Task" class="form-control shadow">
                         </div>
                         <div class="col-md-4">
                             <input type="text" id="notesInput" placeholder="Notes (optional)" class="form-control shadow">
@@ -34,14 +34,20 @@
                             <button id="submitButton" type="button" class="btn btn-primary">Submit</button>
                         </div>
                     </section>
-            
-        
 
-
-            <section id="taskList" class="list-group list-group-light list-group-small">
-                
+            <section>
+                <table class="table caption-top">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Notes</th>
+                            <th>Completion Status</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskList"></tbody>
+                </table>
                 <!-- Tasks will be appended here -->
-                
             </section>
             </div>
         </div>

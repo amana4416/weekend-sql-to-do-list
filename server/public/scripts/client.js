@@ -43,21 +43,28 @@ function getTask() {
         for (let task of res) {
             if(!task.complete) {
                 $('#taskList').append(`
-                <section>
-                    <h4>${task.name}</h4>
-                    <p> ${task.notes} </p>
-                    <button data-id="${task.id}" type="button" class="btn btn-success markAsCompleteButton" style="float:left;">Complete</button>
-                    <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton" style="float:right;">Delete</button>
-                </section>
+                <tr class="notCompleted">
+                    <td>${task.name}</td>
+                    <td> ${task.notes}</td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-success markAsCompleteButton">Complete</button>
+                    </td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton">Delete</button>
+                    </td>
+                <tr>
                 `);
               }
               else if (task.complete) {
                 $('#taskList').append(`
-                <section ${conditionallyMarkAsComplete(task)}>
-                    <h4>${task.name}</h4>
-                    <p> ${task.notes} </p>
-                    <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton" style="float:right;">Delete</button>
-                </section>
+                <tr ${conditionallyMarkAsComplete(task)}>
+                    <td>${task.name}</td>
+                    <td> ${task.notes}</td>
+                    <td>Completed</td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton">Delete</button>
+                    </td>
+                </tr>
                 `);
               }
         }

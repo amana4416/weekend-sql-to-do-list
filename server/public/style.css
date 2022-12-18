@@ -1,13 +1,16 @@
 h1 {
-    color: purple;
+    color: #EA6964;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 30px;
 }
 
 body {
-    background-color: #33ACE3;
     font-family: 'Poppins', sans-serif;
+    background-color: #33ACE3;
 }
-/* default color for a new list item is   */
-#tasksList {
+/* default color for a new list item is light blue  */
+.notCompleted {
     background-color: #98DAF1;
 }
 
@@ -35,3 +38,22 @@ body {
     background-color: #E78C89;
 }
 
+h4, p, .markAsCompleteButton {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+table, td, th {  
+    text-align: center;
+    
+
+}
+  
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%
+}
