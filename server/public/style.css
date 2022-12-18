@@ -19,9 +19,14 @@ body {
     background-color: #81CB71 !important;
 }
 
-#submitButton {
+#submitButton, #filterButton {
     border: #98DAF1;
     background-color: #33ACE3;
+    margin-bottom: 10px;
+}
+
+#filterButton {
+    margin-top: 50x;
 }
 
 .deleteButton {
