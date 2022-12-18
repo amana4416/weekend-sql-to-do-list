@@ -1,13 +1,59 @@
 h1 {
-    color: purple;
+    color: #EA6964;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 30px;
 }
 
-/* default color for a new list item is   */
-li {
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #33ACE3;
+}
+/* default color for a new list item is light blue  */
+.notCompleted {
     background-color: #98DAF1;
 }
 
 /* task turns green when the complete button is clicked */
 .taskComplete {
-    background-color: #81CB71;
+    background-color: #81CB71 !important;
+}
+
+#submitButton {
+    border: #98DAF1;
+    background-color: #33ACE3;
+}
+
+.deleteButton {
+    border: #E78C89;
+    background-color: #EA6964;
+}
+
+.markAsCompleteButton {
+    border: #81CB71;
+    background-color: #4AB62C;
+}
+
+.card {
+    background-color: #E78C89;
+}
+
+h4, p, .markAsCompleteButton {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+table, td, th {  
+    text-align: center;
+    
+
+}
+  
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%
 }

@@ -43,21 +43,28 @@ function getTask() {
         for (let task of res) {
             if(!task.complete) {
                 $('#taskList').append(`
-                <li>
-                <h4>${task.name}</h4>
-                <p> ${task.notes} </p>
-                <button class="deleteButton" data-id="${task.id}">Delete</button>
-                <button class="markAsCompleteButton" data-id="${task.id}">Mark as Complete</button>
-                </li>
+                <tr class="notCompleted">
+                    <td>${task.name}</td>
+                    <td> ${task.notes}</td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-success markAsCompleteButton">Complete</button>
+                    </td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton">Delete</button>
+                    </td>
+                <tr>
                 `);
               }
               else if (task.complete) {
                 $('#taskList').append(`
-                <li ${conditionallyMarkAsComplete(task)}>
-                    <h4>${task.name}</h4>
-                    <p> ${task.notes} </p>
-                    <button class="deleteButton" data-id="${task.id}">Delete</button>
-                </li>
+                <tr ${conditionallyMarkAsComplete(task)}>
+                    <td>${task.name}</td>
+                    <td> ${task.notes}</td>
+                    <td>Completed</td>
+                    <td>
+                        <button data-id="${task.id}" type="button" class="btn btn-danger m-2 deleteButton">Delete</button>
+                    </td>
+                </tr>
                 `);
               }
         }
@@ -121,7 +128,7 @@ function deleteTask() {
 }
 
 //function to visually change the background color of tasks
-// if task is not complete
+//blue if task is not complete
 //green if task is complete
 function conditionallyMarkAsComplete(task) {
     if (task.complete === true) {
