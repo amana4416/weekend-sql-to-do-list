@@ -87,6 +87,9 @@ function postTask(newTask) {
         console.log(res);
         //calling getTasks so page can re-render with updated task list
         getTask();
+        // empty inputs after hitting submit
+        $('#taskInput').val('');
+        $('#notesInput').val('');
     }).catch((err) => {
         console.log('something broke in POST /tasks', err);
     })
